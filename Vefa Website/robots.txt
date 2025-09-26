@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /gizli/
+Disallow: /blog-detay.html
+
+Sitemap: https://www.ornekdomain.com/sitemap.xml
