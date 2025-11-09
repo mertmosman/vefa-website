@@ -1,6 +1,7 @@
 :root {
   --main-color: #F4E9C1;
   --accent-color: #86C2B4;
+  --primary-color: #0e6d54;
   --text-color: #333;
   --hover-green: #86C2B4;     /* Hover için alternatif yeşil */
 }
@@ -67,44 +68,122 @@ img {
 }
 
 .top-bar {
-  background-color: #0e6d54; /* pastel yeşil tonu */
+  background-color: #86C2B4; /* pastel yeşil tonu */
   font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
 }
 
 
+.top-bar {
+  background-color: #86C2B4; /* pastel yeşil tonu */
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+}
+
+
+/* NAVBAR */
 .navbar {
-  background-color: #f5eee4;
-  font-size:larger;
+  background: #fcf4e27e;
+  font-size: larger;
+  position: relative; /* stacking context */
+  z-index: 2000; /* dropdown'un daima slider üstünde kalmasını sağlar */
 }
 
-/* Navbar link hover/focus */
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  background-color: var(--hover-green);
-  color: white !important;
-  outline: none;
+/* Dropdown menünün ana container’ı */
+.nav-item.dropdown {
+  position: static; /* bazı Bootstrap sürümlerinde gereklidir */
 }
 
-/* Aktif navbar link */
-.nav-link.active {
-  font-weight:bold;
-  color: var(--accent-color) !important;
+/* Dropdown menü */
+.dropdown-menu {
+  display: none; /* Başlangıçta gizli */
+  position: absolute;
+  background-color: #fffaeeda;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  z-index: 3000; /* slider ve navbar üstü */
 }
 
-/* Navbar linkleri */
-.navbar-nav .nav-link {
+/* Hover ile açılma */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dropdown menü içeriği görünürken */
+.dropdown-menu.show {
+  display: block;
+}
+
+/* Dropdown item */
+.dropdown-item {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+.dropdown-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hizmetlerimiz başlığı tıklanamaz */
+.nav-link.disabled {
+  pointer-events: none;
+  cursor: default;
   color: var(--text-color);
-  padding: 8px 12px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar alt çizgi animasyonu */
+.navbar-nav .nav-link {
+  position: relative;       /* ::after için gerekli */
+  display: inline-block;    /* ::after konumlaması düzgün olsun */
+  padding-bottom: 5px;      /* alt çizgi için boşluk */
+  color: var(--text-color);
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-color); /* alt çizgi rengi */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Collapse (mobil menü) */
 .navbar-collapse {
-  background-color: #f5eee4;
-  padding: 0px;
+  background-color: #f5eee42e;
+  padding: 0;
   z-index: 1000;
   transition: height 0.45s ease;
   overflow: hidden;
@@ -124,28 +203,6 @@ img {
   overflow: hidden;
   color: white;
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
-
-
-.yazi:hover
-{
-  opacity: 0.75;
-}
-
-.fab {
-    padding: 8px;
-    font-size: 30px;
-    width: 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-}
-.fab:hover {
-    opacity: 0.7;
-}
-
-.fa-instagram {
-  color: #000;
 }
 
 .hero-slider {
@@ -214,7 +271,14 @@ img {
   outline: none;
 }
 
-
+.box-orta {
+  background: linear-gradient(0deg, rgba(84, 193, 199, 0.074), rgba(71, 177, 55, 0.079));
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
 
 .section-title,
 .section-subtitle {
@@ -230,7 +294,7 @@ img {
 }
 
 footer {
-  background: #0e6d54;
+  background: #86C2B4;
   padding: 20px;
   text-align: center;
   padding-top: 60px;
@@ -293,23 +357,43 @@ footer {
 .card {
   border: none;
   border-radius: 16px;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.9); /* %80 opak beyaz */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(0deg, #c6e1c845, #ecc8df3f ,#999dbb52);  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 /* Kart içerisindeki başlık ve paragraf */
-.card h6 {
-  font-size: 1.1rem;
+.card-title {
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #444;
+  color: var(--text-color);
+}
+
+.card-link {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.card-link:hover {
+  color: var(--primary-color);
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
 }
 
 .card p {
@@ -323,7 +407,7 @@ footer {
   width: 130px;
   height: 130px;
   object-fit: cover;
-  border: 4px solid var(--accent-color);
+  border: 4px solid #eaf4f4;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
 }
@@ -333,6 +417,27 @@ footer {
   transform: scale(1.05);
 }
 
+.social-icons {
+  margin-bottom: auto; /* Butonu aşağı iter */
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #adb5bd;
+  margin: 0 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 50px;
+}
 /* --- Butonlar --- */
 .btn {
   border-radius: 25px;
@@ -341,7 +446,7 @@ footer {
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
   display: inline-block;
   margin: 10px auto;
-  text-align: center;
+  text-align: center; 
 }
 
 .btn:hover {
@@ -491,14 +596,16 @@ footer {
 }
 
 .bg-hero {
-  background-color: #ffe8e5;
+  background-color: #e2f5ff;
   border-radius:4rem;
   h1{color:#0e6d54;}
 }
 
 .bg-genel{
-  background-color: #FFF0F5;
-  border-radius:4rem;
+  background-color: rgba(255, 255, 255, 0.25);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8px);
+border-radius: 12px;
   h1{color:#0e6d54;}
 }
 

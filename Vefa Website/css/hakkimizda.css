@@ -67,49 +67,118 @@ img {
 }
 
 .top-bar {
-  background-color: #0e6d54; /* pastel yeşil tonu */
+  background-color: #86C2B4; /* pastel yeşil tonu */
   font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
 }
 
 
+/* NAVBAR */
 .navbar {
-  background-color: #f5eee4;
-  font-size:larger;
+  background: #fcf4e27e;
+  font-size: larger;
+  position: relative; /* stacking context */
+  z-index: 2000; /* dropdown'un daima slider üstünde kalmasını sağlar */
 }
 
-/* Navbar link hover/focus */
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  background-color: var(--hover-green);
-  color: white !important;
-  outline: none;
+/* Dropdown menünün ana container’ı */
+.nav-item.dropdown {
+  position: static; /* bazı Bootstrap sürümlerinde gereklidir */
 }
 
-/* Aktif navbar link */
-.nav-link.active {
-  font-weight:bold;
-  color: var(--accent-color) !important;
+/* Dropdown menü */
+.dropdown-menu {
+  display: none; /* Başlangıçta gizli */
+  position: absolute;
+  background-color: #fffaeeda;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  z-index: 3000; /* slider ve navbar üstü */
 }
 
-/* Navbar linkleri */
-.navbar-nav .nav-link {
+/* Hover ile açılma */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dropdown menü içeriği görünürken */
+.dropdown-menu.show {
+  display: block;
+}
+
+/* Dropdown item */
+.dropdown-item {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+.dropdown-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hizmetlerimiz başlığı tıklanamaz */
+.nav-link.disabled {
+  pointer-events: none;
+  cursor: default;
   color: var(--text-color);
-  padding: 8px 12px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar alt çizgi animasyonu */
+.navbar-nav .nav-link {
+  position: relative;       /* ::after için gerekli */
+  display: inline-block;    /* ::after konumlaması düzgün olsun */
+  padding-bottom: 5px;      /* alt çizgi için boşluk */
+  color: var(--text-color);
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-color); /* alt çizgi rengi */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Collapse (mobil menü) */
 .navbar-collapse {
-  background-color: #f5eee4;
-  padding: 0px;
+  background-color: #f5eee42e;
+  padding: 0;
   z-index: 1000;
   transition: height 0.45s ease;
   overflow: hidden;
 }
-
 
 .map-container {
   border-radius: 10px;
@@ -195,7 +264,7 @@ img {
 
 
 footer {
-  background: #0e6d54;
+  background: #86C2B4;
   padding: 20px;
   text-align: center;
   padding-top: 60px;
@@ -469,12 +538,25 @@ footer {
   display: flex;
 }
 
+.subtitle-box {
+  display: inline-block;      /* kutu yazıya göre daralır */
+  background-color: #ffffff;  /* beyaz arka plan */
+  padding: 16px 32px;          /* iç boşluk */
+  border-radius: 12px;         /* köşeleri yumuşat */
+  font-weight: 600;           /* yazıyı biraz kalın yap */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* hafif gölge */
+  background-color: rgba(255, 255, 255, 0.9); /* %80 opak beyaz */
+}
 
 .bg-genel {
-  background-color: #f2fefe;
+  background-color: rgba(255, 255, 255, 0.25);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8px);
+border-radius: 12px;
   border-radius:2rem;
   h1{color:#0e6d54;}
 }
+
 
 .bg-hero {
   text-align: right;
@@ -501,11 +583,7 @@ footer {
   h3{color:#0e6d54;}
 }
 
-.bg-nedenbiz {
-  background-color: #fcd2d6;
-  border-radius: 3rem;
-  h2{color:#0e6d54;}
-}
+
 
 .bg-misyon h2, .bg-vizyon h2, .bg-ofis h3 {
   text-align: right;
@@ -542,10 +620,106 @@ footer {
   background-color: #20b858;
 }
 
+.bg-nedenbiz {
+  background: linear-gradient(90deg, #ff3a2e, #ff8f4c);  border-radius: 3rem;
+  h2{color:#fff;}
+  
+}
 
+.alt-text{
+  color: #fff;
+}
 
+  .row-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 4%;
+    flex-wrap: wrap;
+  }
+
+  .column-card {
+    flex: 1 1 48%;
+    position: relative;
+    min-height: 280px;
+    padding: 25px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  /* Fotoğraf alanı */
+  .photo-box {
+    width: 60%;
+    height: 200px;
+    background: #009bb3;
+    border-radius: 15px;
+  }
+
+  /* Turuncu yazı alanı */
+  .text-box {
+    position: absolute;
+    top: 200px;
+    left: 15%;
+    width: 80%;
+    min-height: 160px;
+    background: linear-gradient(90deg, #ff3a2e, #ff8f4c);
+    border-radius: 15px;
+    color: #fff;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  /* Başlık alanı */
+  .text-box h2 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .text-box h2::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #fff;
+    margin-bottom: 6px;
+    border-radius: 2px;
+  }
+
+  .text-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 
 @media (max-width: 991px) {
+
+  .row-card {
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .column {
+      flex: 1 1 100%;
+      min-height: 250px;
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .photo-box {
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    .text-box {
+      position: relative;
+      width: 90%;
+      left: 5%;
+      top:5px;
+      margin-top: -30px;
+    }
+
   .whatsapp-button {
     width: 55px;
     height: 55px;
@@ -603,6 +777,16 @@ footer {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+}
+
+.subtitle-box {
+  display: inline-block;      /* kutu yazıya göre daralır */
+  background-color: #ffffff;  /* beyaz arka plan */
+  padding: 16px 32px;          /* iç boşluk */
+  border-radius: 12px;         /* köşeleri yumuşat */
+  font-weight: 600;           /* yazıyı biraz kalın yap */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* hafif gölge */
+  background-color: rgba(255, 255, 255, 0.9); /* %80 opak beyaz */
 }
 
 .hak-img {

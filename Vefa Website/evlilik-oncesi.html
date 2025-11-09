@@ -32,35 +32,59 @@
   </div>
 
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-  <div class="container-fluid px-3">
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+  <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="index.html">
       <img src="img/vefa_logo.webp" alt="Özel Vefa Logo" class="vefa-logo">
       <span class="fw-bold fs-4 text-wrap site-title lead">Vefa Aile Danışma Merkezi</span>
     </a>
+
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNav">
       <ul class="navbar-nav ms-auto fw-bold">
+
         <li class="nav-item"><a class="nav-link" href="index.html">Anasayfa</a></li>
         <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
-        <li class="nav-item"><a class="nav-link" href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+
+        <!-- Dropdown Menü -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle hiz bi bi-caret-down" href="#" id="hizmetlerDropdown" role="button"  aria-expanded="false">
+            Hizmetlerimiz
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="hizmetlerDropdown">
+            <li><a class="dropdown-item" href="bireysel.html">Bireysel Danışmanlık</a></li>
+            <li><a class="dropdown-item" href="aile.html">Aile Danışmanlığı</a></li>
+            <li><a class="dropdown-item" href="iliski-cift.html">İlişki ve Çift Terapisi</a></li>
+            <li><a class="dropdown-item" href="evlilik-oncesi.html">Evlilik Öncesi Rehberlik</a></li>
+            <li><a class="dropdown-item" href="bosanma-sureci.html">Boşanma Süreci Danışmanlığı</a></li>
+            <li><a class="dropdown-item" href="bosanma-sonrasi.html">Boşanma Sonrası Danışmanlık</a></li>
+            <li><a class="dropdown-item" href="oyun-terapisi.html">Oyun Terapisi</a></li>
+            <li><a class="dropdown-item" href="cocuk-ergen.html">Çocuk ve Ergen Terapisi</a></li>
+            <li><a class="dropdown-item" href="ebeveyn-cocuk.html">Ebeveyn Çocuk Danışmanlığı</a></li>
+            <li><a class="dropdown-item" href="grup-atolye.html">Grup Çalışmaları ve Atölyeler</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item"><a class="nav-link" href="uzmanlar.html">Uzmanlar</a></li>
         <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+
       </ul>
     </div>
   </div>
-  </nav>
+</nav>
   
   <main class="container my-5">
   <section>
     <div style="text-align: center;">
       <h1 class="text-center section-subtitle subtitle-box mb-4">Evlilik Öncesi Rehberlik</h1>
     </div>
-    <p class="lead text-center">
+    <div class="box-bas">
+      <p class="lead text-center">
       Evlilik, bireylerin hayatında yeni bir dönemin başlangıcıdır. Ancak bu süreç,
       hem heyecan hem de belirsizlikleri beraberinde getirebilir. 
       <br><br>
@@ -68,12 +92,14 @@
       sağlıklı bir iletişim geliştirmelerini ve geleceğe daha sağlam adımlarla
       ilerlemelerini destekleyen bir süreçtir.
     </p>
+    </div>
+    
 
     <div class="row align-items-center mt-5">
       <div class="col-md-6">
         <img src="img/evlilik-oncesi.jpg" alt="Evlilik Öncesi Rehberlik" class="img-fluid rounded shadow">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 box-orta">
         <h3 class="section-subtitle">Hangi Durumlarda Evlilik Öncesi Rehberlik Alınabilir?</h3>
         <p>
           Evlilik öncesi rehberlik, sadece sorun yaşayan çiftler için değil, birlikte
@@ -91,7 +117,7 @@
       </div>
     </div>
 
-    <div class="mt-5">
+    <div class="mt-5 box-son">
       <h3 class="section-subtitle">Evlilik Öncesi Rehberliğin Faydaları</h3>
       <p>
         Evlilik öncesi danışmanlık, çiftlerin daha bilinçli bir şekilde evliliğe adım
