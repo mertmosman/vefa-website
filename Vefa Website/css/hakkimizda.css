@@ -21,13 +21,13 @@
 body::before {
   content: "";
   position: fixed;
-  top: -100px;
+  top: 100px;
   left: -100px;
   width: 400px;
   height: 400px;
   background: #d6e1fe;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(150px);
   z-index: -1;
 }
 
@@ -50,16 +50,23 @@ img {
 }
 
 .vefa-logo {
+  height: 90px;              /* Navbarda hizalı görünmesi için sabit yükseklik */
+  width: auto;               /* 16:9 oranı bozulmasın */
+  object-fit: contain;       /* Görüntüyü sıkıştırmadan düzgün gösterir */
+  padding: 0;                /* Boşluk yok */
+  margin-right: 12px;        /* Menü ile mesafe */
+  display: block;
+}
+.vefa-logo_footer {
   width: 110px;
   height: 110px;
   object-fit: cover;
-  border-radius:30%;
-  border: 3.1px solid #c4a764; /* pastel altın rengi gibi */
+  border-radius: 50%;
+  border: 3.2px solid #c4a764; /* pastel altın rengi gibi */
   background-color: #f6efe5; /* arka plana uygun ten tonu */
-  padding: 10px;
+  padding: 5px;
   margin-right: 10px;
 }
-
 
 .logo {
   height: 40px;
@@ -623,7 +630,7 @@ border-radius: 12px;
 .bg-nedenbiz {
   background: linear-gradient(90deg, #ff3a2e, #ff8f4c);  border-radius: 3rem;
   h2{color:#fff;}
-  
+  box-shadow: 5px 10px 20px rgba(0,0,0,0.15);
 }
 
 .alt-text{
@@ -642,30 +649,41 @@ border-radius: 12px;
     position: relative;
     min-height: 280px;
     padding: 25px;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
 
   /* Fotoğraf alanı */
-  .photo-box {
-    width: 60%;
-    height: 200px;
-    background: #009bb3;
+.photo-box {
+    width: 80%;
+    height: 300px;
+    border-radius: 15;
+    background: #009bb3; /* Varsayılan renk, resim yoksa */
     border-radius: 15px;
-  }
+    background-size: cover;
+    background-position: center;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Örnek olarak farklı kutular için farklı görsel eklemek istersek */
+.photo-box.biz-kimiz { background-image: url("../img/geminikurum.webp");}
+.photo-box.misyon { background-image: url("../img/geminipark.webp"); }
+.photo-box.vizyon { background-image: url("../img/pexels-elly-fairytale-3806962.jpg"); }
+.photo-box.guven-samimiyet { background-image: url("../img/geminibatımk.webp");}
+
 
   /* Turuncu yazı alanı */
   .text-box {
     position: absolute;
-    top: 200px;
+    top: 350px;
     left: 15%;
     width: 80%;
     min-height: 160px;
-    background: linear-gradient(90deg, #ff3a2e, #ff8f4c);
+    background: linear-gradient(90deg, #ff382eee, #ff8f4c);
     border-radius: 15px;
     color: #fff;
     padding: 25px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.2);
   }
 
   /* Başlık alanı */
@@ -710,6 +728,7 @@ border-radius: 12px;
     .photo-box {
       width: 70%;
       margin: 0 auto;
+      object-fit: cover;
     }
 
     .text-box {
@@ -743,13 +762,10 @@ border-radius: 12px;
   white-space: nowrap; /* Satır kaymasını önle */
 }
   .vefa-logo {
-  width: 100px;
+  width: 130px;
   height: auto;
-  border-radius:30%;
-  border: 3px solid #c4a764; /* pastel altın rengi gibi */
   object-fit: cover;
-  background-color: #f6efe5; /* arka plana uygun ten tonu */
-  padding: 5px;
+  padding: 0px;
   margin-right: 10px;
   }
 

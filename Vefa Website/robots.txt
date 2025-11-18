@@ -1,6 +1,3 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /gizli/
-Disallow: /blog-detay.html
-
-Sitemap: https://www.ornekdomain.com/sitemap.xml
+Allow: /
+Sitemap: https://www.vefaailedanismanligi.com/sitemap.xml

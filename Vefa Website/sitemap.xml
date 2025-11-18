@@ -2,29 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.ornekdomain.com/index.html</loc>
+    <loc>https://www.vefaailedanismanligi.com/</loc>
     <priority>1.00</priority>
   </url>
 
   <url>
-    <loc>https://www.ornekdomain.com/hakkimizda.html</loc>
-    <priority>0.80</priority>
+    <loc>https://www.vefaailedanismanligi.com/Hakkımızda/</loc>
   </url>
 
   <url>
-    <loc>https://www.ornekdomain.com/uzmanlar.html</loc>
-    <priority>0.80</priority>
+    <loc>https://www.vefaailedanismanligi.com/Hizmetlerimiz/</loc>
   </url>
 
   <url>
-    <loc>https://www.ornekdomain.com/blog.html</loc>
-    <priority>0.70</priority>
+    <loc>https://www.vefaailedanismanligi.com/İletişim/</loc>
   </url>
 
   <url>
-    <loc>https://www.ornekdomain.com/iletisim.html</loc>
-    <priority>0.60</priority>
+    <loc>https://www.vefaailedanismanligi.com/Blog/</loc>
   </url>
 
-  <!-- NOT: blog-detay.html bilinçli olarak eklenmedi -->
+  <url>
+    <loc>https://www.vefaailedanismanligi.com/Uzmanlar/</loc>
+  </url>
+
 </urlset>

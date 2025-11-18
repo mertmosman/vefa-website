@@ -17,17 +17,35 @@ body {
   transition: opacity 0.5s ease-in;
 }
 
+/* Görsel kutusu */
+.img-col .img-box {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
 
+.img-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.img-col img:hover {
+  transform: scale(1.05);
+}
 body::before {
   content: "";
   position: fixed;
-  top: -100px;
+  top: 100px;
   left: -100px;
   width: 400px;
   height: 400px;
   background: #d6e1fe;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(180px);
   z-index: -1;
 }
 
@@ -50,16 +68,23 @@ img {
 }
 
 .vefa-logo {
+  height: 90px;              /* Navbarda hizalı görünmesi için sabit yükseklik */
+  width: auto;               /* 16:9 oranı bozulmasın */
+  object-fit: contain;       /* Görüntüyü sıkıştırmadan düzgün gösterir */
+  padding: 0;                /* Boşluk yok */
+  margin-right: 12px;        /* Menü ile mesafe */
+  display: block;
+}
+.vefa-logo_footer {
   width: 110px;
   height: 110px;
   object-fit: cover;
-  border-radius:30%;
-  border: 3.1px solid #c4a764; /* pastel altın rengi gibi */
+  border-radius: 50%;
+  border: 3.2px solid #c4a764; /* pastel altın rengi gibi */
   background-color: #f6efe5; /* arka plana uygun ten tonu */
-  padding: 10px;
+  padding: 5px;
   margin-right: 10px;
 }
-
 .logo {
   height: 40px;
   margin-right: 10px;
@@ -676,7 +701,7 @@ h2
   margin-block-start: auto !important;
 }
 .box-bas {
-  background: linear-gradient(0deg, rgba(179, 66, 66, 0.14), rgba(26, 52, 182, 0.079));
+  background: linear-gradient(0deg, rgba(183, 218, 255, 0.363), rgba(197, 242, 255, 0.379));
   backdrop-filter: blur(12px);
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -692,7 +717,7 @@ h2
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 .box-son {
-  background: linear-gradient(0deg, rgba(60, 173, 198, 0.14), rgba(104, 26, 182, 0.079));
+  background: linear-gradient(0deg, rgba(179, 199, 255, 0.163), rgba(255, 229, 143, 0.19));
   backdrop-filter: blur(12px);
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -700,6 +725,11 @@ h2
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 991px) {
+
+  .img-col .img-box {
+    width: 90%;
+    margin: 0 auto 30px auto;
+  }
   .whatsapp-button {
     width: 55px;
     height: 55px;
@@ -723,13 +753,10 @@ h2
   white-space: nowrap; /* Satır kaymasını önle */
 }
   .vefa-logo {
-  width: 100px;
+  width: 130px;
   height: auto;
-  border-radius:30%;
-  border: 3px solid #c4a764; /* pastel altın rengi gibi */
   object-fit: cover;
-  background-color: #f6efe5; /* arka plana uygun ten tonu */
-  padding: 5px;
+  padding: 0px;
   margin-right: 10px;
   }
 
