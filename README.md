@@ -4,6 +4,8 @@ Vefa Aile Danışma Merkezi için geliştirilmiş kurumsal web sitesi projesi. B
 
 ## 🎯 Projeye Genel Bakış
 
+<img width="1837" height="1040" alt="Ekran görüntüsü 2026-01-12 184404" src="https://github.com/user-attachments/assets/e31acc26-5fd7-4de7-8439-21ee9156f854" />
+
 Bu web sitesi, bir aile danışma merkezinin dijital dünyadaki yüzü olmayı hedefler. Kullanıcı dostu arayüzü ile ziyaretçilerin aradıkları bilgilere kolayca ulaşmasını sağlar. Proje tamamen statik HTML, CSS ve JavaScript kullanılarak oluşturulmuştur ve Bootstrap framework'ü ile mobil uyumlu (responsive) hale getirilmiştir.
 
 ## ✨ Özellikler
@@ -11,8 +13,14 @@ Bu web sitesi, bir aile danışma merkezinin dijital dünyadaki yüzü olmayı h
 Site, bir kurumsal web sitesinde bulunması gereken tüm temel bölümleri içermektedir:
 
 * 🏠 **Anasayfa:** Ziyaretçileri karşılayan, genel bilgilerin ve yönlendirmelerin bulunduğu vitrin sayfası.
+* <img width="1837" height="1036" alt="Ekran görüntüsü 2026-01-12 184453" src="https://github.com/user-attachments/assets/847d38bf-574a-4015-997c-ae2f114c1c91" />
+
 * 📖 **Hakkımızda:** Merkezin misyonu, vizyonu ve çalışma prensipleri hakkında detaylı bilgi.
+* <img width="843" height="912" alt="Ekran görüntüsü 2026-01-12 184304" src="https://github.com/user-attachments/assets/89e8fd86-2f0d-484b-bb24-c7cc743a9ed1" />
+
 * 🤝 **Hizmetlerimiz:** Sunulan danışmanlık hizmetlerinin listelendiği ana sayfa.
+* <img width="1102" height="1040" alt="Ekran görüntüsü 2026-01-12 184745" src="https://github.com/user-attachments/assets/51341215-e4af-4125-9418-f16975e0c91a" />
+
     * Her bir hizmet (örn: Bireysel Terapi, Çift Terapisi) için özel olarak hazırlanmış detay sayfaları.
 * 🧑‍💼 **Uzmanlar:** Merkezde görev alan danışmanların ve uzmanların tanıtıldığı bölüm.
 * ✍️ **Blog:** Bilgilendirici makalelerin, duyuruların ve haberlerin paylaşıldığı alan.
